@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Home({ res }: any) {
 	return (
 		<div className="container">
 			<h1>Home</h1>
@@ -8,6 +8,7 @@ export default function Home() {
 				<FormInput type="text" placeholder="Look at me!" label="Third Thing" />
 				<FormInput type="text" placeholder="Look at me!" label="Fourth Thing" />
 			</form>
+			{res.response}
 		</div>
 	);
 }
@@ -23,4 +24,15 @@ function FormInput(props: any) {
 			/>
 		</div>
 	);
+}
+
+export async function getStaticProps() {
+	const data = await fetch('http://localhost:3000/api/hello');
+	const json = await data.json();
+
+	return {
+		props: {
+			res: json,
+		},
+	};
 }
