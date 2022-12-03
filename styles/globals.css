@@ -1,26 +1,31 @@
-html,
+@import url('https://use.typekit.net/rcr1opg.css');
+
+:root {
+	box-sizing: border-box;
+	font-size: 1.5rem;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background: linear-gradient(
+		176deg,
+		rgba(18, 24, 27, 1) 50%,
+		rgba(32, 39, 55, 1) 100%
+	);
+	min-height: 100vh;
+	color: white;
+	font-family: 'sofia-pro', 'sans-serif';
+	display: flex;
+	justify-content: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container {
+	max-width: 800px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+input {
+	margin-left: 15px;
 }
