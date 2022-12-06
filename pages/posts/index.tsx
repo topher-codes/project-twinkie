@@ -1,18 +1,16 @@
 import Link from 'next/link';
 import db from '../../lib/db';
+import entries from '../api/entries';
 
 const Posts = (props: any) => {
 	const { entriesData } = props;
 
 	return (
-		<div>
-			<h1>Posts</h1>
+		<div className="container">
+			<h1>Posts: {entriesData.length}</h1>
 			{entriesData.map((entry: any) => (
 				<div key={entry.id}>
-					<Link href={`/posts/${entry.slug}`}>
-						<p>{entry.title}</p>
-					</Link>
-					<br />
+					<Link href={`/posts/${entry.slug}`}>{entry.title}</Link>
 				</div>
 			))}
 		</div>
