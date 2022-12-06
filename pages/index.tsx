@@ -57,9 +57,9 @@ const Post = () => {
 			<label htmlFor="body">Detailed Description</label>
 			<textarea name="body" value={content.body} onChange={onChange} />
 
-			<label htmlFor="simple-controlled">Tech Rating</label>
+			<label htmlFor="rating">Tech Rating</label>
 			<Rating
-				name="simple-controlled"
+				name="rating"
 				value={content.rating}
 				onChange={onChange}
 				icon={<SiNike fontSize="inherit" />}
