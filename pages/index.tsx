@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import dashify from 'dashify';
 import axios from 'axios';
-import { ThankYou } from './thankyou';
+
 import { Rating } from '@mui/material';
 import { SiNike } from 'react-icons/si';
+import { ThankYou } from './thankyou';
 
 const Post = () => {
 	const [content, setContent] = useState({
