@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export const ThankYou = () => {
+const ThankYou = () => {
 	return (
 		<div>
 			{/* create a 10 second timer to route back to the index.tsx file */}
@@ -10,3 +10,5 @@ export const ThankYou = () => {
 		</div>
 	);
 };
+
+export default ThankYou;
