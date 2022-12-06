@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import dashify from 'dashify';
 import axios from 'axios';
+
 import { Rating } from '@mui/material';
 import { SiNike } from 'react-icons/si';
+import { ThankYou } from './thankyou';
 
 const Post = () => {
 	const [content, setContent] = useState({
@@ -68,7 +70,7 @@ const Post = () => {
 			{!submitted ? (
 				<button onClick={onSubmit}>POST</button>
 			) : (
-				<button>Thanks!</button>
+				<ThankYou />
 			)}
 		</div>
 	);
