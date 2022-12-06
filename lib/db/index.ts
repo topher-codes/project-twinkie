@@ -9,7 +9,7 @@ if (!admin.apps.length) {
 		admin.initializeApp({
 			credential: admin.credential.cert(serviceAccount),
 		});
-	} catch (error) {
+	} catch (error: any) {
 		console.log('Firebase admin initialization error', error.stack);
 	}
 }
