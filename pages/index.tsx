@@ -6,7 +6,7 @@ const Post = () => {
 	const [content, setContent] = useState({
 		user: undefined,
 		email: undefined,
-		title: undefined,
+		issue: undefined,
 		body: undefined,
 	});
 	const [submitted, setSubmitted] = useState(false);
@@ -15,26 +15,33 @@ const Post = () => {
 		setContent((prevState) => ({ ...prevState, [name]: value }));
 	};
 	const onSubmit = async () => {
-		const { user, title, body }: any = content;
-		await axios.post('/api/entry', { user, title, slug: dashify(title), body });
+		const { user, email, issue, body }: any = content;
+		await axios.post('/api/entry', {
+			user,
+			email,
+			issue,
+			slug: dashify(user),
+			body,
+		});
 		setSubmitted(true);
 	};
 	return (
 		<div className="container">
-			<label htmlFor="title">Name</label>
+			<label htmlFor="user">Name</label>
 			<input type="text" name="user" value={content.user} onChange={onChange} />
-			<label htmlFor="title">Email</label>
+
+			<label htmlFor="email">Email</label>
 			<input
 				type="text"
 				name="email"
 				value={content.email}
 				onChange={onChange}
 			/>
-			<label htmlFor="title">Title</label>
+			<label htmlFor="title">Issue</label>
 			<input
 				type="text"
-				name="title"
-				value={content.title}
+				name="issue"
+				value={content.issue}
 				onChange={onChange}
 			/>
 			<label htmlFor="body">Body</label>
