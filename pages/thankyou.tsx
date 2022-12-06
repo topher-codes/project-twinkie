@@ -1,13 +1,12 @@
-import React from "react";
-
+import React from 'react';
+import Image from 'next/image';
 
 export const ThankYou = () => {
-    return (
-        <div>
-            {/* create a 10 second timer to route back to the index.tsx file */}
-            <h1>Thank you! </h1>
-            <img src="/nikeicon.png" alt="nikeicon" />
-        </div>
-        
-    )
-    };
+	return (
+		<div>
+			{/* create a 10 second timer to route back to the index.tsx file */}
+			<h1>Thank you! </h1>
+			<Image src="/nikeicon.png" alt="nikeicon" width={200} height={200} />
+		</div>
+	);
+};

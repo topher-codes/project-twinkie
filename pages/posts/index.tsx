@@ -10,7 +10,7 @@ const Posts = (props: any) => {
 			<h1>Posts: {entriesData.length}</h1>
 			{entriesData.map((entry: any) => (
 				<div key={entry.id}>
-					<Link href={`/posts/${entry.slug}`}>{entry.title}</Link>
+					<Link href={`/posts/${entry.slug}`}>{entry.id}</Link>
 				</div>
 			))}
 		</div>
@@ -20,7 +20,7 @@ const Posts = (props: any) => {
 export const getStaticProps = async () => {
 	const entries = await db
 		.collection('incidents')
-		.orderBy('created', 'desc')
+		.where('tech', '==', 'tyler')
 		.get();
 	const entriesData = entries.docs.map((entry) => ({
 		id: entry.id,

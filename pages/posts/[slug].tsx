@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import db from '../../lib/db';
+import { IoArrowBackCircle } from 'react-icons/io';
 
 const Post = (props: any) => {
 	const { entry } = props;
@@ -10,7 +11,8 @@ const Post = (props: any) => {
 		if (entry) {
 			return (
 				<div>
-					<h1>{entry.title}</h1>
+					<h1>{entry.user}</h1>
+					<h2>{entry.issue}</h2>
 					<h4>{entry.created}</h4>
 					<p>{entry.body}</p>
 				</div>
