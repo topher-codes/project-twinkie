@@ -16,7 +16,10 @@ const Post = (props: any) => {
 					<h4>{entry.created}</h4>
 					<p>{entry.body}</p>
 					<p>
-						<Link href="https://niketech.service-now.com/now/workspace/agent/new_record/interaction/2">
+						<Link
+							href="https://niketech.service-now.com/now/workspace/agent/new_record/interaction/2"
+							target="_blank"
+						>
 							Open Agent Workspace
 						</Link>
 					</p>
