@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import db from '../../lib/db';
+import Link from 'next/link';
 
 const Post = (props: any) => {
 	const { entry } = props;
@@ -15,6 +16,11 @@ const Post = (props: any) => {
 					<h4>{entry.created}</h4>
 					<p>{entry.body}</p>
 					<p>Rating: {entry.rating}</p>
+					<p>
+						<Link href="https://niketech.service-now.com/now/workspace/agent/new_record/interaction/2">
+							Open Agent Workspace
+						</Link>
+					</p>
 				</div>
 			);
 		} else {
