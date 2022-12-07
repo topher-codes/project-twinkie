@@ -59,6 +59,7 @@ const Post = () => {
 							<option value="none">Select</option>
 							<option value="topher">Topher</option>
 							<option value="tyler">Tyler</option>
+							<option value="erik">Erik</option>
 						</select>
 						<label htmlFor="email">Email</label>
 						<input
