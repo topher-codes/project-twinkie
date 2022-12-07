@@ -29,7 +29,7 @@ const Post = () => {
 			tech,
 			email,
 			issue,
-			slug: dashify(user + Math.random().toString),
+			slug: dashify(user + Math.random().toString()),
 			body,
 			rating,
 		});
