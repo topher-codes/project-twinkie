@@ -13,7 +13,7 @@
 }
 body {
 	min-height: 100vh;
-	background-color: rgb(162, 38, 38);
+	background-color: #eee;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: bold;
 	display: flex;
