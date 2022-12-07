@@ -9,8 +9,11 @@ const Posts = (props: any) => {
 		<div className="container">
 			<h1>Posts: {entriesData.length}</h1>
 			{entriesData.map((entry: any) => (
-				<div key={entry.id}>
-					<Link href={`/posts/${entry.slug}`}>{entry.id}</Link>
+				<div key={entry.id} className="card">
+					<Link href={`/posts/${entry.slug}`}>
+						{entry.id}
+						<p>{new Date(entry.created).toLocaleString()}</p>
+					</Link>
 				</div>
 			))}
 		</div>
