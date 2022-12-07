@@ -15,7 +15,6 @@ const Post = (props: any) => {
 					<h2>{entry.issue}</h2>
 					<h4>{entry.created}</h4>
 					<p>{entry.body}</p>
-					<p>Rating: {entry.rating}</p>
 					<p>
 						<Link href="https://niketech.service-now.com/now/workspace/agent/new_record/interaction/2">
 							Open Agent Workspace
