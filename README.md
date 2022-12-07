@@ -7,3 +7,4 @@
 
 - Auth using firebaseAuth so that only the logged in user's tasks are displayed.
 - Style the elements to be responsive on mobile and desktop.
+- Add delete post button to individual posts on the admin page
