@@ -14,6 +14,7 @@ const Post = (props: any) => {
 					<h2>{entry.issue}</h2>
 					<h4>{entry.created}</h4>
 					<p>{entry.body}</p>
+					<p>Rating: {entry.rating}</p>
 				</div>
 			);
 		} else {
@@ -48,6 +49,7 @@ export const getStaticProps = async (context: any) => {
 	} else {
 		return {
 			props: {},
+			revalidate: 10,
 		};
 	}
 };
