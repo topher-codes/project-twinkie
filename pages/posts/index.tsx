@@ -47,7 +47,7 @@ const Posts = (props: any) => {
 				.map((entry: any) => (
 					<div key={entry.id} className="card">
 						<Link href={`/posts/${entry.slug}`}>
-							{entry.id}
+							{entry.user}
 							<p>{new Date(entry.created).toLocaleString()}</p>
 						</Link>
 					</div>
