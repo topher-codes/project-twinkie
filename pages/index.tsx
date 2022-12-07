@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { Rating } from '@mui/material';
 import { SiNike } from 'react-icons/si';
-import { ThankYou } from './thankyou';
+import ThankYou from '../components/thankyou';
 
 const Post = () => {
 	const router = useRouter();
