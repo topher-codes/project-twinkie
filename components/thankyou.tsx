@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ThankYou = () => {
 	return (
-		<div>
+		<div className="thankYou">
 			{/* create a 10 second timer to route back to the index.tsx file */}
 			<h1>Thank you! </h1>
 			<Image src="/nikeicon.png" alt="nikeicon" width={200} height={200} />
