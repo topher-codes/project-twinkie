@@ -37,14 +37,13 @@ textarea {
 	border-radius: 10px;
 	height: 50px;
 	width: 13rem;
-	box-shadow: 4px 4px 0px;
 	margin-bottom: 20px;
 	margin-top: 8px;
 }
-input {
+input[type='text'],
+input[type='email'] {
 	border-radius: 15px;
 	width: 13rem;
-	box-shadow: 4px 4px 0px;
 	margin-bottom: 20px;
 	margin-top: 8px;
 	height: 20px;
@@ -52,7 +51,6 @@ input {
 select {
 	width: 13rem;
 	border-radius: 15px;
-	box-shadow: 4px 4px 0px;
 	margin-bottom: 20px;
 	margin-top: 8px;
 	height: 20px;

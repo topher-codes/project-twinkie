@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import db from '../../lib/db';
+import { db } from '../../lib/firebase';
+import { collection, getDocs, where, query } from 'firebase/firestore';
 import Link from 'next/link';
 
 const Post = (props: any) => {
@@ -32,8 +33,9 @@ const Post = (props: any) => {
 };
 
 export const getStaticPaths = async () => {
-	const entries = await db.collection('incidents').get();
-	const paths = entries.docs.map((entry) => ({
+	const entries = await collection(db, 'incidents');
+	const entriesRef = await getDocs(entries);
+	const paths = entriesRef.docs.map((entry) => ({
 		params: {
 			slug: entry.data().slug,
 		},
@@ -46,8 +48,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: any) => {
 	const { slug } = context.params;
-	const res = await db.collection('incidents').where('slug', '==', slug).get();
-	const entry = res.docs.map((entry) => entry.data());
+	const res = await collection(db, 'incidents');
+	const entries = await getDocs(query(res, where('slug', '==', slug)));
+
+	const entry = entries.docs.map((entry: any) => entry.data());
 	if (entry.length) {
 		return {
 			props: {

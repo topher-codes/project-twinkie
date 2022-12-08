@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import db from '../../lib/db';
-import entries from '../api/entries';
+import { db } from '../../lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import { useState } from 'react';
+import { NextPage } from 'next';
 
-const Posts = (props: any) => {
+const Posts: NextPage = (props: any) => {
 	const { entriesData } = props;
 	const [tech, setTech] = useState({
 		tech: undefined,
@@ -57,8 +58,9 @@ const Posts = (props: any) => {
 };
 
 export const getStaticProps = async () => {
-	const entries = await db.collection('incidents').get();
-	const entriesData = entries.docs.map((entry) => ({
+	const entries = await collection(db, 'incidents');
+	const entriesSnapshot = await getDocs(entries);
+	const entriesData = entriesSnapshot.docs.map((entry: any) => ({
 		id: entry.id,
 		...entry.data(),
 	}));
