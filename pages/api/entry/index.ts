@@ -2,13 +2,14 @@
 import { db } from '../../../lib/firebase';
 import { collection, addDoc, getDoc, getDocs } from 'firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
-		const { slug } = req.body;
+		const { user } = req.body;
 		const incidents = await collection(db, 'incidents');
 		const incidentsRef = await getDocs(incidents);
 		const incidentsData = incidentsRef.docs.map((doc) => doc.data());
-		if (incidentsData.some((entry) => entry.slug === slug)) {
+		if (incidentsData.some((entry) => entry.user === user)) {
 			res.status(400).end();
 		} else {
 			const { id } = await addDoc(incidents, {

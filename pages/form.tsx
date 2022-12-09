@@ -21,8 +21,10 @@ const Post = () => {
 		const { value, name } = e.target;
 		setContent((prevState) => ({ ...prevState, [name]: value }));
 	};
+
 	const onSubmit = async (e: any) => {
 		e.preventDefault();
+		setSubmitted(true);
 		const { user, email, tech, issue, body, rating }: any = content;
 		await axios.post('/api/entry', {
 			user,
@@ -33,7 +35,6 @@ const Post = () => {
 			body,
 			rating,
 		});
-		setSubmitted(true);
 	};
 	return (
 		<form onSubmit={onSubmit}>

@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { db } from '../../lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, deleteDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { NextPage } from 'next';
+import { useRouter } from 'next/navigation';
 
 const Posts: NextPage = (props: any) => {
+	const router = useRouter();
 	const { entriesData } = props;
 	const [tech, setTech] = useState({
 		tech: undefined,
@@ -14,6 +16,11 @@ const Posts: NextPage = (props: any) => {
 		const { value, name } = e.target;
 		setTech((prevState) => ({ ...prevState, [name]: value }));
 		console.log(tech.tech);
+	};
+
+	const deleteBtn = async (id: any) => {
+		await deleteDoc(doc(db, 'incidents', id));
+		window.location.reload();
 	};
 
 	return (
@@ -51,6 +58,9 @@ const Posts: NextPage = (props: any) => {
 							{entry.user}
 							<p>{new Date(entry.created).toLocaleString()}</p>
 						</Link>
+						<p>
+							<button onClick={() => deleteBtn(entry.id)}>Delete</button>
+						</p>
 					</div>
 				))}
 		</div>
@@ -66,7 +76,7 @@ export const getStaticProps = async () => {
 	}));
 	return {
 		props: { entriesData },
-		revalidate: 10,
+		revalidate: 2,
 	};
 };
 
