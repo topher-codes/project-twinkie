@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import {
+	signInWithEmailAndPassword,
+	getAuth,
+	onAuthStateChanged,
+} from 'firebase/auth';
 import { app } from '../../../lib/firebase';
 export default async function handler(
 	req: NextApiRequest,

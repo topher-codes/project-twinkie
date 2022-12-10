@@ -1,4 +1,6 @@
 import { NextPage } from 'next';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from '../lib/firebase';
 import React from 'react';
 import axios from 'axios';
 
@@ -12,6 +14,14 @@ const Login: NextPage = () => {
 				password: password.value,
 			});
 			console.log(data);
+			const auth = getAuth(app);
+			onAuthStateChanged(auth, (user) => {
+				if (user) {
+					console.log(user);
+				} else {
+					console.log('no user');
+				}
+			});
 		} catch (error) {
 			console.log(error);
 		}
